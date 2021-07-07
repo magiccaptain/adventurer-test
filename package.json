@@ -1,0 +1,98 @@
+{
+	"name": "@adventurer-tech/test",
+	"version": "0.0.0",
+	"description": "Test",
+	"repository": {
+		"url": "adventurer-tech/test",
+		"type": "git"
+	},
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
+	"template": "service",
+	"files": [
+		"bin",
+		"dist",
+		"mock",
+		"typings"
+	],
+	"config-overrides-path": "node_modules/@36node/sketch/config-overrides",
+	"main": "dist/index.js",
+	"typings": "typings/index.d.ts",
+	"scripts": {
+		"format": "prettier --trailing-comma es5 --write 'src/**/*.js'",
+		"gen:api": "swagen koa openapi.yml ./src/api && npm run format",
+		"gen:postman": "swagen postman openapi.yml postman.json",
+		"lint": "sketch lint src",
+		"release": "standard-version",
+		"server": "node --harmony -r esm bin/start.js",
+		"start": "sketch start bin/start.js",
+		"test": "sketch test --passWithNoTests"
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -e $GIT_PARAMS",
+			"pre-commit": "lint-staged",
+			"pre-push": "npm run lint && CI=true npm run test"
+		}
+	},
+	"lint-staged": {
+		"*.js": [
+			"npm run format",
+			"git add"
+		]
+	},
+	"devDependencies": {
+		"@36node/eslint-config": "^0.6.4",
+		"@36node/sketch": "^0.15.4",
+		"@36node/swagen": "^0.17.12",
+		"@commitlint/cli": "^6.1.0",
+		"@commitlint/config-conventional": "^6.1.0",
+		"@types/jest": "^24.0.12",
+		"@types/koa": "^2.0.46",
+		"@types/lodash": "^4.14.116",
+		"husky": "^1.3.1",
+		"jest-runner-newman": "^1.0.5",
+		"lint-staged": "^8.1.5",
+		"newman": "^4.4.1",
+		"pino-pretty": "^3.2.0",
+		"prettier": "^1.18.2",
+		"standard-version": "^6.0.1"
+	},
+	"dependencies": {
+		"@adventurer-tech/club-sdk-js": "^0.0.4",
+		"@adventurer-tech/finance-sdk-js": "^0.0.4",
+		"@adventurer-tech/kanban-sdk": "^0.1.6",
+		"debug": "^4.1.1",
+		"dotenv": "^7.0.0",
+		"esm": "^3.2.25",
+		"jsonwebtoken": "^8.5.1",
+		"lodash": "^4.17.10",
+		"mem": "^8.0.0",
+		"moment": "^2.29.1",
+		"pino": "^5.11.1"
+	},
+	"jest": {
+		"displayName": "unit",
+		"testMatch": [
+			"<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+			"<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+		],
+		"transformIgnorePatterns": [
+			"[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+			"^.+\\.module\\.(css|sass|scss)$"
+		]
+	},
+	"babel": {
+		"presets": [
+			"react-app"
+		]
+	},
+	"gitHead": "3ac8084d1ac6494ba85e9bbb21b6027dfbce1868"
+}
