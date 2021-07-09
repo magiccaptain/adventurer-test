@@ -62,6 +62,7 @@ po.userInfo = {
   bank: "中国银行",
   bankCard: "324444xxxxxx",
   github: "36node-develop",
+  ns: "adventurer.36node",
 };
 
 export const pm = new Fetcher({
@@ -80,6 +81,7 @@ pm.userInfo = {
   bank: "山东银行",
   bankCard: "12321234234",
   github: "36node-pm",
+  ns: "adventurer.36node",
 };
 
 export const user1 = new Fetcher({
@@ -98,6 +100,7 @@ user1.userInfo = {
   bank: "河南银行",
   bankCard: "123124124",
   github: "36node-user1",
+  ns: "adventurer.members",
 };
 
 export const user2 = new Fetcher({
@@ -116,4 +119,5 @@ user2.userInfo = {
   bank: "中国工商银行",
   bankCard: "6561xxxxxxxx",
   github: "36node-user2",
+  ns: "adventurer.members",
 };
