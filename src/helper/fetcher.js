@@ -46,6 +46,15 @@ class Fetcher {
   }
 }
 
+export const system = new Fetcher({
+  user: "60eaf30454adb60011766384",
+  roles: ["ADMIN"],
+});
+
+system.userInfo = {
+  name: "系统",
+};
+
 export const po = new Fetcher({
   user: "600bb06a6a6c690011096fe1", // 小陈
   roles: ["MEMBER_MANAGER", "APPLICATION_MANAGER", "NOTIFICATION_MANAGER"],

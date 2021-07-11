@@ -9,7 +9,7 @@ const tickets = [
   {
     title: "新建一个苹果",
     content: "新建一个苹果",
-    type: "task",
+    type: "TASK",
     level: 1,
     deadline: moment()
       .add("1", "month")
@@ -35,7 +35,7 @@ const tickets = [
   {
     title: "香蕉是圆的",
     content: "香蕉是圆的",
-    type: "task",
+    type: "TASK",
     level: 3,
     deadline: moment()
       .add("1", "month")
@@ -61,7 +61,7 @@ const tickets = [
   {
     title: "微信的短内容",
     content: "微信的短内容",
-    type: "task",
+    type: "EPIC",
     level: 2,
     deadline: moment()
       .add("1", "month")
@@ -87,7 +87,7 @@ const tickets = [
   {
     title: "爸爸去哪儿了",
     content: "爸爸去哪儿了",
-    type: "task",
+    type: "STORY",
     level: 4,
     deadline: moment()
       .add("1", "month")
@@ -113,7 +113,7 @@ const tickets = [
   {
     title: "打造突破式产品思维——王师母",
     content: "打造突破式产品思维——王师母",
-    type: "task",
+    type: "BUG",
     level: 5,
     deadline: moment()
       .add("1", "month")
@@ -141,7 +141,7 @@ const tickets = [
 async function main() {
   try {
     await Promise.all(
-      tickets.map((t) => {
+      tickets.map(t => {
         return po.kanban.ticket.createTicket({
           body: {
             ...t,
