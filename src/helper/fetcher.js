@@ -53,6 +53,7 @@ export const system = new Fetcher({
 
 system.userInfo = {
   name: "系统",
+  ns: "adventurer",
 };
 
 export const po = new Fetcher({
@@ -128,5 +129,27 @@ user2.userInfo = {
   bank: "中国工商银行",
   bankCard: "6561xxxxxxxx",
   github: "36node-user2",
+  ns: "adventurer.members",
+};
+
+export const magiccaptain = new Fetcher({
+  user: "60ec4724cdd2a100118935bf",
+  roles: [
+    "ADMIN",
+    "USERMANAGER",
+    "FINANCE_MANAGER",
+    "MEMBER_MANAGER",
+    "APPLICATION_MANAGER",
+  ],
+});
+
+magiccaptain.userInfo = {
+  name: "邵辰",
+  github: "magiccaptain",
+  phone: "17737179225",
+  idCard: "410203198805102550",
+  bank: "中国建设银行股份有限公司开封城西支行",
+  bankCard: "6217002490001039051",
+  email: "magiccaptain510@gmail.com",
   ns: "adventurer.members",
 };
